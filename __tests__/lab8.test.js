@@ -216,11 +216,11 @@ describe('Basic user flow for SPA ', () => {
 			expect(propertyValue.image.alt).toMatch("may the fourth be with you");
 			expect(propertyValue.audio).toMatch("https://drive.google.com/uc?export=download&id=1luYh909US7ZBFe6uo440Vv_LNnRdnErT");
   }, 10000);
-	
+
   // create your own test 20: Clicking the back button once and forward button once should bring the user to home page and then back to tenth entry page
 	it('Test20: Clicking the back button and forward button, new URL should have no tag, and then contain /#entry10', async() => {
 		await page.goBack(); 
-		let url = await page.evaluate(() => location.href);
+    let url = await page.evaluate(() => location.href);
 		expect(url).toMatch('http://127.0.0.1:5500'); 
 		await page.goForward(); 
 		url = await page.evaluate(() => location.href);
