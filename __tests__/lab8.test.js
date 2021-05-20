@@ -29,9 +29,9 @@ describe('Basic user flow for SPA ', () => {
 
   it('Test3: Clicking first <journal-entry>, new URL should contain /#entry1', async () => {
     // implement test3: Clicking on the first journal entry should update the URL to contain “/#entry1”
-		await expect(page).toClick('main :nth-child(1)');
-		const url = await page.evaluate(() => location.href);
-		expect(url).toMatch('http://127.0.0.1:5500/#entry1'); 
+    await expect(page).toClick('main :nth-child(1)');
+    const url = await page.evaluate(() => location.href);
+    expect(url).toMatch('http://127.0.0.1:5500/#entry1'); 
 
   }, 10000);
 	
@@ -57,15 +57,15 @@ describe('Basic user flow for SPA ', () => {
           }
         }
 			*/
-			const entryHandle = await page.$('entry-page'); 
-			const propertyHandle = await entryHandle.getProperty('entry'); 
-			const propertyValue = await propertyHandle.jsonValue(); 
+    const entryHandle = await page.$('entry-page'); 
+    const propertyHandle = await entryHandle.getProperty('entry'); 
+    const propertyValue = await propertyHandle.jsonValue(); 
 
-			expect(propertyValue.title).toMatch('You like jazz?');
-			expect(propertyValue.date).toMatch('4/25/2021');
-			expect(propertyValue.content).toMatch("According to all known laws of aviation, there is no way a bee should be able to fly. Its wings are too small to get its fat little body off the ground. The bee, of course, flies anyway because bees don't care what humans think is impossible.");
-			expect(propertyValue.image.src).toMatch("https://i1.wp.com/www.thepopcornmuncher.com/wp-content/uploads/2016/11/bee-movie.jpg?resize=800%2C455");
-			expect(propertyValue.image.alt).toMatch("bee with sunglasses");
+    expect(propertyValue.title).toMatch('You like jazz?');
+    expect(propertyValue.date).toMatch('4/25/2021');
+    expect(propertyValue.content).toMatch("According to all known laws of aviation, there is no way a bee should be able to fly. Its wings are too small to get its fat little body off the ground. The bee, of course, flies anyway because bees don't care what humans think is impossible.");
+    expect(propertyValue.image.src).toMatch("https://i1.wp.com/www.thepopcornmuncher.com/wp-content/uploads/2016/11/bee-movie.jpg?resize=800%2C455");
+    expect(propertyValue.image.alt).toMatch("bee with sunglasses");
   }, 10000);
 	
   it('Test6: On first Entry page - checking <body> element classes', async () => {
